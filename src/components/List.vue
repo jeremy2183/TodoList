@@ -4,7 +4,7 @@
 			{{title}}
 		</h1>		
 		<ul>
-			<li v-for="item in items" v-bind:class="{finish:item.isFinished}">
+			<li v-for="item in items" v-bind:class="{finish:item.isFinished}" @click="toggleFinish(item)">
 				{{item.text}}
 			</li>
 		</ul>
@@ -31,6 +31,12 @@ export default{
 					isFinished: true
 				}
 			]
+		}
+	},
+	methods: {
+		toggleFinish: function(item){
+			//改變狀態
+			item.isFinished = !item.isFinished;
 		}
 	}
 }
