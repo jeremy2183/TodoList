@@ -3,6 +3,7 @@
 		<h1 class="title">
 			{{title}}
 		</h1>		
+		<input v-model="newStr" @keyup.enter="addData">
 		<ul>
 			<li v-for="item in items" v-bind:class="{finish:item.isFinished}" @click="toggleFinish(item)">
 				{{item.text}}
@@ -22,21 +23,32 @@ export default{
 		return{
 			title: "TodoList",
 			items: [				//待辦事項
-				{
-					text: "今天晚上18:00跑步",
-				isFinished: false
-				},
-				{
-					text: "今天早餐",
-					isFinished: true
-				}
-			]
+				// {
+				// 	text: "今天晚上18:00跑步",
+				// isFinished: false
+				// },
+				// {
+				// 	text: "今天早餐",
+				// 	isFinished: true
+				// }
+			],
+			newStr: ''
 		}
 	},
 	methods: {
 		toggleFinish: function(item){
 			//改變狀態
+			// console.log(1);
 			item.isFinished = !item.isFinished;
+		},
+		addData: function(){
+			// console.log(this.newStr);
+			this.items.push({
+				text: this.newStr,
+				isFinished: false
+			});
+			//清空輸入框內容
+			this.newStr = '';
 		}
 	}
 }
