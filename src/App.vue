@@ -6,7 +6,7 @@
     <HeaderView :msg="title"></HeaderView>
 
     <!-- 組件使用 -->
-    <ListView></ListView>
+    <ListView @myMsg="getData"></ListView>
   </div>
 </template>
 
@@ -17,6 +17,8 @@ import ListView from './components/List'
 import HeaderView from './components/Header'
 
 //App.vue是父組件，ListView是子組件  組件間通信
+// 父組件 --> 子組件  props選項
+// 子組件 --> 父組件  自定義事件
 
 export default {
   name: 'App',
@@ -26,6 +28,12 @@ export default {
   data(){
     return{
       title: "Vue入門學習"
+    }
+  },
+  methods: {
+    getData(msg){
+      console.log("App.vue組件中:" + msg);
+      this.title = msg;
     }
   }
 }
