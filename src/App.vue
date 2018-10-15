@@ -2,7 +2,8 @@
   <div id="app">
     <img src="./assets/logo.png">
     <!-- 組件使用 -->
-    <HeaderView></HeaderView>
+    <!-- <HeaderView msg="父組件傳遞到子組件"></HeaderView> -->
+    <HeaderView :msg="title"></HeaderView>
 
     <!-- 組件使用 -->
     <ListView></ListView>
@@ -21,6 +22,11 @@ export default {
   name: 'App',
   components: { //註冊組件
       ListView,HeaderView
+  },
+  data(){
+    return{
+      title: "Vue入門學習"
+    }
   }
 }
 </script>
