@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <!-- 組件使用 -->
+    <HeaderView></HeaderView>
 
     <!-- 組件使用 -->
     <ListView></ListView>
@@ -11,11 +13,14 @@
 // import HelloWorld from './components/HelloWorld'
 //導入組件
 import ListView from './components/List'
+import HeaderView from './components/Header'
+
+//App.vue是父組件，ListView是子組件  組件間通信
 
 export default {
   name: 'App',
   components: { //註冊組件
-      ListView
+      ListView,HeaderView
   }
 }
 </script>
